@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="50%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base Circle / Shield -->
+  <rect width="512" height="512" rx="128" fill="url(#emeraldGrad)"/>
+  
+  <!-- Outer Gold Border -->
+  <rect x="20" y="20" width="472" height="472" rx="112" fill="none" stroke="url(#goldGrad)" stroke-width="8" opacity="0.85"/>
+
+  <!-- Inner Crest Shield -->
+  <g filter="url(#shadow)" transform="translate(256, 256)">
+    <!-- Crescent Moon -->
+    <path d="M 40 -120 A 100 100 0 1 0 120 40 A 85 85 0 1 1 40 -120 Z" fill="url(#goldGrad)" transform="translate(-80, -20)"/>
+    
+    <!-- Star of Excellence -->
+    <polygon points="0,-12 3.7,-2.6 12.8,-2.6 5.5,3.2 8.3,11.8 0,6.5 -8.3,11.8 -5.5,3.2 -12.8,-2.6 -3.7,-2.6" fill="#fef08a" transform="translate(30, -90) scale(2.2)"/>
+
+    <!-- Open Book of Knowledge (Quran / Academics) -->
+    <path d="M -90 40 Q -45 25 0 45 Q 45 25 90 40 L 90 95 Q 45 80 0 100 Q -45 80 -90 95 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M -90 40 Q -45 25 0 45 L 0 100 Q -45 80 -90 95 Z" fill="#f1f5f9"/>
+    <!-- Book Spine & Pages Lines -->
+    <line x1="0" y1="45" x2="0" y2="100" stroke="#047857" stroke-width="3"/>
+    <line x1="-75" y1="58" x2="-15" y2="52" stroke="#047857" stroke-width="2" opacity="0.6"/>
+    <line x1="-75" y1="72" x2="-15" y2="66" stroke="#047857" stroke-width="2" opacity="0.6"/>
+    <line x1="15" y1="52" x2="75" y2="58" stroke="#047857" stroke-width="2" opacity="0.6"/>
+    <line x1="15" y1="66" x2="75" y2="72" stroke="#047857" stroke-width="2" opacity="0.6"/>
+
+    <!-- School Monogram Monolith -->
+    <text x="0" y="-10" font-family="serif" font-weight="900" font-size="76" fill="url(#goldGrad)" text-anchor="middle">S</text>
+    <text x="0" y="24" font-family="sans-serif" font-weight="800" font-size="16" fill="#a7f3d0" letter-spacing="4" text-anchor="middle">ISS</text>
+  </g>
+
+  <!-- Bottom Arch Banner -->
+  <text x="256" y="440" font-family="sans-serif" font-weight="700" font-size="20" fill="#fde047" letter-spacing="3" text-anchor="middle">
+    SHUHADAE ISLAMIC SS
+  </text>
+  <text x="256" y="468" font-family="sans-serif" font-weight="600" font-size="14" fill="#a7f3d0" letter-spacing="2" text-anchor="middle">
+    NYAMITANGA · MBARARA
+  </text>
+</svg>

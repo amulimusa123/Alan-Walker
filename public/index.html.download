@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shuhadae Islamic Secondary School - Offline Edition</title>
+  <meta name="description" content="Offline standalone website and student information portal for Shuhadae Islamic Secondary School, Nyamitanga Division, Mbarara City, Uganda.">
+  
+  <!-- Standalone Embedded Core CSS (Works 100% with ZERO internet connection) -->
+  <style>
+    :root {
+      --emerald-950: #022c22;
+      --emerald-900: #064e3b;
+      --emerald-800: #065f46;
+      --emerald-700: #047857;
+      --emerald-600: #059669;
+      --emerald-100: #d1fae5;
+      --emerald-50: #ecfdf5;
+      --amber-400: #fbbf24;
+      --amber-500: #f59e0b;
+      --amber-600: #d97706;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background-color: var(--slate-50); color: var(--slate-900); line-height: 1.5; padding-bottom: 70px; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    .max-w-7xl { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
+    .bg-emerald-900 { background-color: var(--emerald-900); }
+    .bg-emerald-950 { background-color: var(--emerald-950); }
+    .bg-emerald-800 { background-color: var(--emerald-800); }
+    .bg-emerald-700 { background-color: var(--emerald-700); }
+    .bg-emerald-50 { background-color: var(--emerald-50); }
+    .bg-amber-400 { background-color: var(--amber-400); }
+    .bg-amber-500 { background-color: var(--amber-500); }
+    .bg-slate-900 { background-color: var(--slate-900); }
+    .bg-slate-100 { background-color: var(--slate-100); }
+    .bg-white { background-color: #ffffff; }
+    .text-white { color: #ffffff; }
+    .text-emerald-100 { color: var(--emerald-100); }
+    .text-emerald-700 { color: var(--emerald-700); }
+    .text-emerald-800 { color: var(--emerald-800); }
+    .text-amber-300 { color: #fde047; }
+    .text-amber-400 { color: var(--amber-400); }
+    .text-slate-500 { color: var(--slate-500); }
+    .text-slate-600 { color: var(--slate-600); }
+    .text-slate-700 { color: var(--slate-700); }
+    .text-slate-900 { color: var(--slate-900); }
+    .rounded-xl { border-radius: 12px; }
+    .rounded-2xl { border-radius: 16px; }
+    .rounded-3xl { border-radius: 24px; }
+    .rounded-full { border-radius: 9999px; }
+    .shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .shadow-md { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+    .border { border: 1px solid var(--slate-200); }
+    .border-emerald-700 { border-color: var(--emerald-700); }
+    .border-amber-400 { border-color: var(--amber-400); }
+    .grid { display: grid; }
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-center { justify-content: center; }
+    .gap-2 { gap: 8px; }
+    .gap-3 { gap: 12px; }
+    .gap-4 { gap: 16px; }
+    .gap-6 { gap: 24px; }
+    .gap-8 { gap: 32px; }
+    .p-3 { padding: 12px; }
+    .p-4 { padding: 16px; }
+    .p-6 { padding: 24px; }
+    .p-8 { padding: 32px; }
+    .py-2 { padding-top: 8px; padding-bottom: 8px; }
+    .py-3 { padding-top: 12px; padding-bottom: 12px; }
+    .py-8 { padding-top: 32px; padding-bottom: 32px; }
+    .py-12 { padding-top: 48px; padding-bottom: 48px; }
+    .px-4 { padding-left: 16px; padding-right: 16px; }
+    .px-6 { padding-left: 24px; padding-right: 24px; }
+    .mb-2 { margin-bottom: 8px; }
+    .mb-4 { margin-bottom: 16px; }
+    .mb-6 { margin-bottom: 24px; }
+    .mb-8 { margin-bottom: 32px; }
+    .font-bold { font-weight: 700; }
+    .font-extrabold { font-weight: 800; }
+    .font-black { font-weight: 900; }
+    .text-xs { font-size: 12px; }
+    .text-sm { font-size: 14px; }
+    .text-base { font-size: 16px; }
+    .text-lg { font-size: 18px; }
+    .text-xl { font-size: 20px; }
+    .text-2xl { font-size: 24px; }
+    .text-3xl { font-size: 30px; }
+    .text-4xl { font-size: 36px; }
+    .table-auto { width: 100%; border-collapse: collapse; }
+    .table-auto th, .table-auto td { padding: 10px 14px; border-bottom: 1px solid var(--slate-200); text-align: left; }
+    .sticky-top { position: sticky; top: 0; z-index: 40; }
+    .fixed-bottom { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; }
+    
+    @media (min-width: 640px) {
+      .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .sm\:flex-row { flex-direction: row; }
+    }
+    @media (min-width: 1024px) {
+      .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .lg\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Offline Standalone Banner Indicator -->
+  <div style="background-color: #065f46; color: #fef08a; padding: 6px 16px; font-size: 11px; font-weight: bold; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #f59e0b;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%;"></span>
+      <span>SHUHADAE ISLAMIC SS · 100% STANDALONE OFFLINE EDITION</span>
+      <span style="opacity: 0.8; font-weight: normal; margin-left: 6px;">(Stored locally in your browser - no internet needed)</span>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="downloadSelf()" style="background: #f59e0b; color: #022c22; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 800; cursor: pointer;">
+        📥 Download index.html
+      </button>
+      <span style="color: #a7f3d0;">UNEB Center: U0842</span>
+    </div>
+  </div>
+
+  <!-- Primary Top Navigation Bar -->
+  <header class="bg-white border sticky-top shadow-sm">
+    <div class="max-w-7xl flex items-center justify-between" style="height: 70px;">
+      <div onclick="navigateTo('home')" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+        <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #065f46, #022c22); border: 2px solid #f59e0b; display: flex; align-items: center; justify-content: center; color: #fde047; font-weight: 900; font-size: 20px;">
+          S
+        </div>
+        <div>
+          <div style="font-weight: 900; font-size: 17px; line-height: 1.1; color: var(--slate-900);">Shuhadae Islamic Secondary School</div>
+          <div style="font-size: 11px; color: var(--emerald-700); font-weight: 700;">Nyamitanga Division, Mbarara City · O & A-Level</div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button onclick="navigateTo('login')" style="background: #f1f5f9; color: #0f172a; padding: 6px 14px; border-radius: 10px; font-size: 12px; font-weight: 800; border: 1px solid #cbd5e1;">
+          🔐 Portal Login
+        </button>
+        <button onclick="navigateTo('portal')" style="background: #065f46; color: #ffffff; padding: 6px 14px; border-radius: 10px; font-size: 12px; font-weight: 800;">
+          📊 Student Dashboard
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DYNAMIC VIEW CONTAINER -->
+  <main id="app-root"></main>
+
+  <!-- FLOATING PERSISTENT WEBPAGES NAVIGATOR (Zero-dependency Hash Navigation) -->
+  <div class="fixed-bottom" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); border-top: 1px solid #334155; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; overflow-x: auto;">
+    <div style="font-size: 11px; font-weight: 900; color: #fde047; white-space: nowrap; padding-right: 6px;">
+      ⚡ Pages:
+    </div>
+    <div style="display: flex; gap: 6px; overflow-x: auto;">
+      <button onclick="navigateTo('login')" class="nav-btn" data-page="login" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        🔐 Login (First Page)
+      </button>
+      <button onclick="navigateTo('home')" class="nav-btn" data-page="home" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        🏠 1. Home
+      </button>
+      <button onclick="navigateTo('about')" class="nav-btn" data-page="about" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        📖 2. About Us
+      </button>
+      <button onclick="navigateTo('academics')" class="nav-btn" data-page="academics" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        🎓 3. Academics
+      </button>
+      <button onclick="navigateTo('admissions')" class="nav-btn" data-page="admissions" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        📋 4. Admissions & Fees
+      </button>
+      <button onclick="navigateTo('campus-life')" class="nav-btn" data-page="campus-life" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        📸 5. Campus Life
+      </button>
+      <button onclick="navigateTo('alumni')" class="nav-btn" data-page="alumni" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        👥 6. Alumni
+      </button>
+      <button onclick="navigateTo('contact')" class="nav-btn" data-page="contact" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        📍 7. Contact Us
+      </button>
+      <button onclick="navigateTo('portal')" class="nav-btn" data-page="portal" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #e2e8f0; background: #1e293b;">
+        📊 Student Portal
+      </button>
+      <button onclick="toggleOfflineChat()" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #022c22; background: #fde047; cursor: pointer;">
+        💬 AI Counselor (Offline)
+      </button>
+      <button onclick="downloadSelf()" style="padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; white-space: nowrap; color: #022c22; background: #f59e0b; cursor: pointer;">
+        📥 Download index.html
+      </button>
+    </div>
+  </div>
+
+  <!-- FLOATING OFFLINE AI COUNSELOR CHAT MODAL -->
+  <div id="offline-chat-modal" style="display: none; position: fixed; bottom: 65px; right: 16px; width: 360px; max-width: calc(100vw - 32px); height: 460px; background: #ffffff; border-radius: 20px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); border: 2px solid #065f46; z-index: 60; overflow: hidden; display: none; flex-direction: column;">
+    <div style="background: linear-gradient(135deg, #065f46, #022c22); padding: 14px 16px; color: #ffffff; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f59e0b;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 18px;">👳</span>
+        <div>
+          <div style="font-size: 13px; font-weight: 900;">Ustadh Sulaiman</div>
+          <div style="font-size: 10px; color: #a7f3d0;">Offline AI Admissions Counselor</div>
+        </div>
+      </div>
+      <button onclick="toggleOfflineChat()" style="color: #ffffff; font-size: 16px; font-weight: 900; background: none; border: none; cursor: pointer;">✕</button>
+    </div>
+    
+    <div id="chat-log" style="flex: 1; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; background: #f8fafc; font-size: 12px;">
+      <div style="background: #ecfdf5; border: 1px solid #a7f3d0; color: #064e3b; padding: 10px 12px; border-radius: 12px; line-height: 1.4;">
+        <strong>Assalamu Alaikum!</strong> Welcome to Shuhadae Islamic Secondary School, Nyamitanga, Mbarara City.<br>
+        I am your 100% offline Admissions Assistant. Tap any quick question below or ask me about fees, subjects, or boarding!
+      </div>
+    </div>
+
+    <!-- Quick question chips -->
+    <div style="padding: 8px 12px; background: #ffffff; border-top: 1px solid #e2e8f0; display: flex; gap: 6px; overflow-x: auto;">
+      <button onclick="askOfflineChat('What are the S.1 and S.5 fees?')" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 9999px; padding: 4px 10px; font-size: 10px; font-weight: bold; white-space: nowrap; cursor: pointer;">💰 Fees Structure</button>
+      <button onclick="askOfflineChat('Where is the school located and how do I get there?')" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 9999px; padding: 4px 10px; font-size: 10px; font-weight: bold; white-space: nowrap; cursor: pointer;">📍 Campus Route</button>
+      <button onclick="askOfflineChat('Which A-Level combinations are available?')" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 9999px; padding: 4px 10px; font-size: 10px; font-weight: bold; white-space: nowrap; cursor: pointer;">🔬 Combinations</button>
+      <button onclick="askOfflineChat('Tell me about the Islamic prayers and Tahfiz')" style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 9999px; padding: 4px 10px; font-size: 10px; font-weight: bold; white-space: nowrap; cursor: pointer;">🕌 Prayers & Deen</button>
+    </div>
+
+    <div style="padding: 10px 12px; background: #ffffff; border-top: 1px solid #e2e8f0; display: flex; gap: 6px;">
+      <input id="chat-input" type="text" placeholder="Type question (e.g. fees, boarding)..." style="flex: 1; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px;" onkeydown="if(event.key==='Enter'&&this.value){askOfflineChat(this.value);this.value='';}">
+      <button onclick="const el=document.getElementById('chat-input');if(el.value){askOfflineChat(el.value);el.value='';}" style="background: #065f46; color: #ffffff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">Send</button>
+    </div>
+  </div>
+
+  <!-- STANDALONE JAVASCRIPT CONTROLLER -->
+  <script>
+    // Offline Data State
+    const SCHOOL_DATA = {
+      name: "Shuhadae Islamic Secondary School",
+      location: "Nyamitanga Division, Mbarara City, Western Uganda (2 km off Mbarara–Isingiro Highway)",
+      phone: "0705 705 967",
+      alumniPhone: "0702 365 176 / 0755 260 894",
+      email: "info@shuhadaeislamicssmbarara.com",
+      unebCenter: "U0842",
+      headteacher: "Hajji Dr. Sulaiman Bukenya",
+    };
+
+    const STUDENT_DATA = {
+      name: "Farooq Kateregga",
+      index: "U0842/045",
+      admissionNo: "SISS/2022/1089",
+      class: "Senior Four Green",
+      section: "Boarding Section",
+      aggregates: 12,
+      division: "Division 1 (Distinction)",
+      prayerAttendance: "98%",
+      tahfiz: "Surah Al-Kahf completed, Juzu 15 Tajweed",
+      feesTotal: 950000,
+      feesPaid: 800000,
+      feesBalance: 150000,
+    };
+
+    // Routing & Rendering Controller
+    function navigateTo(page) {
+      window.location.hash = page;
+      renderPage(page);
+      updateNavButtons(page);
+      if (page === 'portal') {
+        setTimeout(startOfflineCountdownTicker, 50);
+      }
+      window.scrollTo(0, 0);
+    }
+
+    function updateNavButtons(page) {
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.dataset.page === page) {
+          btn.style.background = '#047857';
+          btn.style.color = '#ffffff';
+          btn.style.boxShadow = '0 0 0 2px #f59e0b';
+        } else {
+          btn.style.background = '#1e293b';
+          btn.style.color = '#e2e8f0';
+          btn.style.boxShadow = 'none';
+        }
+      });
+    }
+
+    function renderPage(page) {
+      const root = document.getElementById('app-root');
+      
+      // PAGE: LOGIN (FIRST PAGE)
+      if (page === 'login') {
+        root.innerHTML = `
+          <div style="min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 24px 16px;">
+            <div style="max-width: 440px; width: 100%; background: #ffffff; border-radius: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border: 1px solid #cbd5e1; overflow: hidden;">
+              <div style="background: linear-gradient(135deg, #064e3b, #022c22); padding: 24px; text-align: center; color: #ffffff; border-bottom: 4px solid #f59e0b;">
+                <div style="width: 56px; height: 56px; border-radius: 16px; background: rgba(0,0,0,0.4); border: 2px solid #f59e0b; display: inline-flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 900; color: #fde047; margin-bottom: 8px;">S</div>
+                <h2 style="font-size: 18px; font-weight: 900;">Shuhadae Islamic Secondary School</h2>
+                <p style="font-size: 11px; color: #a7f3d0;">Academic & Student Portal Gateway (ASIP) · Mbarara</p>
+                <div style="margin-top: 6px; font-size: 10px; font-family: monospace; background: rgba(0,0,0,0.3); display: inline-block; padding: 2px 8px; border-radius: 6px; color: #fde047;">UNEB Center: U0842 · Nyamitanga</div>
+              </div>
+
+              <div style="padding: 24px;">
+                <div style="font-size: 12px; font-weight: bold; color: #334155; margin-bottom: 12px; text-align: center;">Choose Portal Role & Enter Credentials:</div>
+                <div style="display: flex; gap: 4px; background: #f1f5f9; padding: 4px; border-radius: 12px; margin-bottom: 16px;">
+                  <button type="button" class="role-select-btn" onclick="selectOfflineRole('student', this)" style="flex: 1; padding: 6px; font-size: 11px; font-weight: 800; background: #ffffff; border-radius: 8px; color: #064e3b; box-shadow: 0 1px 2px rgba(0,0,0,0.05); border: none; cursor: pointer;">Student</button>
+                  <button type="button" class="role-select-btn" onclick="selectOfflineRole('parent', this)" style="flex: 1; padding: 6px; font-size: 11px; font-weight: 700; color: #64748b; background: transparent; border: none; cursor: pointer;">Parent</button>
+                  <button type="button" class="role-select-btn" onclick="selectOfflineRole('staff', this)" style="flex: 1; padding: 6px; font-size: 11px; font-weight: 700; color: #64748b; background: transparent; border: none; cursor: pointer;">Staff</button>
+                  <button type="button" class="role-select-btn" onclick="selectOfflineRole('alumni', this)" style="flex: 1; padding: 6px; font-size: 11px; font-weight: 700; color: #64748b; background: transparent; border: none; cursor: pointer;">Alumni</button>
+                  <button type="button" class="role-select-btn" onclick="selectOfflineRole('admin', this)" style="flex: 1; padding: 6px; font-size: 11px; font-weight: 700; color: #92400e; background: transparent; border: none; cursor: pointer;">🛡️ Admin</button>
+                </div>
+
+                <!-- DYNAMIC ROLE FORM CONTAINER -->
+                <div id="offline-form-fields-container">
+                  <div style="margin-bottom: 12px;">
+                    <label id="offline-id-label" style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 4px;">UNEB Index or Admission Number:</label>
+                    <input id="offline-login-id" type="text" placeholder="e.g. U0842/045" style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 13px; font-family: monospace;">
+                  </div>
+
+                  <div style="margin-bottom: 16px;">
+                    <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 4px;">Security PIN / Password:</label>
+                    <input id="offline-login-pin" type="password" placeholder="Enter PIN / Password" style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 13px;">
+                  </div>
+                </div>
+
+                <div id="login-error-msg" style="display: none; background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; padding: 8px 12px; border-radius: 8px; font-size: 11px; margin-bottom: 12px;"></div>
+                <div id="login-success-msg" style="display: none; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; padding: 8px 12px; border-radius: 8px; font-size: 11px; margin-bottom: 12px;"></div>
+
+                <button id="offline-login-submit-btn" onclick="handleOfflineLogin()" style="width: 100%; padding: 12px; border-radius: 12px; background: #065f46; color: #ffffff; font-weight: 800; font-size: 13px; margin-bottom: 12px; cursor: pointer; border: none;">
+                  🔐 Log In to Portal
+                </button>
+
+                <div id="offline-admin-create-toggle" style="display: none; text-align: center; margin-bottom: 12px;">
+                  <button type="button" onclick="toggleOfflineAdminCreateMode()" style="background: #fef3c7; border: 1px solid #fde047; color: #78350f; font-size: 11px; font-weight: bold; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+                    + Register Secondary Admin (Slot 2/2)
+                  </button>
+                </div>
+
+                <div style="border-top: 1px solid #e2e8f0; padding-top: 12px; margin-top: 8px; text-align: center;">
+                  <div style="font-size: 11px; color: #64748b; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                    <span>🛡️</span>
+                    <span>Secured Academic Portal • UNEB Center U0842</span>
+                  </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 12px;">
+                  <button onclick="navigateTo('home')" style="font-size: 12px; font-weight: 800; color: #065f46; text-decoration: underline; background: none; border: none; cursor: pointer;">
+                    → Skip to Public School Website & Admissions 2025/2026
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PAGE: PORTAL DASHBOARD (Admin or Student)
+      if (page === 'portal') {
+        const offlineAdmins = getOfflineAdmins();
+        const isAdmin = currentOfflineUser && currentOfflineUser.role === 'admin' && !currentOfflineUser.preview;
+
+        if (isAdmin) {
+          let adminRows = offlineAdmins.map((adm, idx) => `
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span style="font-weight: 900; font-size: 14px; color: #0f172a;">${adm.fullName}</span>
+                  <span style="background: ${adm.isPrimary ? '#fef3c7' : '#d1fae5'}; color: ${adm.isPrimary ? '#92400e' : '#065f46'}; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 9999px;">${adm.isPrimary ? 'Primary Admin' : 'Secondary Admin'}</span>
+                </div>
+                <div style="font-size: 12px; color: #065f46; font-weight: 600; margin-top: 2px;">${adm.title}</div>
+                <div style="font-size: 11px; color: #64748b; font-family: monospace; margin-top: 4px;">Username: @${adm.username} • Admin Slot #${idx + 1} of 2</div>
+              </div>
+              <button onclick="deleteOfflineAdmin('${adm.id}')" style="background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; font-size: 11px; font-weight: bold; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+                🗑️ Remove Admin
+              </button>
+            </div>
+          `).join('');
+
+          let addSecondaryBtn = '';
+          if (offlineAdmins.length === 1) {
+            addSecondaryBtn = `
+              <div style="background: #f0fdf4; border: 2px dashed #86efac; border-radius: 16px; padding: 20px; text-align: center; margin-top: 12px;">
+                <p style="font-size: 13px; font-weight: 800; color: #064e3b; margin-bottom: 4px;">Secondary Admin Slot Available (1/2 Active)</p>
+                <p style="font-size: 11px; color: #166534; margin-bottom: 12px;">Under school policy, up to two administrators are permitted. You can register your 2nd admin account now.</p>
+                <button onclick="navigateTo('login'); selectOfflineRole('admin'); toggleOfflineAdminCreateMode();" style="background: #065f46; color: #ffffff; font-size: 12px; font-weight: 800; padding: 8px 16px; border-radius: 10px; border: none; cursor: pointer;">
+                  + Register Secondary Admin Now (2/2)
+                </button>
+              </div>
+            `;
+          } else if (offlineAdmins.length >= 2) {
+            addSecondaryBtn = `
+              <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 12px; font-size: 12px; color: #92400e; margin-top: 12px; text-align: center;">
+                🔒 <strong>Maximum admin limit reached (2/2 registered).</strong> Both permitted administrator slots are assigned.
+              </div>
+            `;
+          }
+
+          root.innerHTML = `
+            <div class="max-w-7xl py-8">
+              <!-- Admin Header Banner -->
+              <div style="background: linear-gradient(135deg, #022c22, #0f172a); color: #ffffff; border-radius: 20px; padding: 24px; border-bottom: 4px solid #f59e0b; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                    <span style="background: #f59e0b; color: #0f172a; font-weight: 900; font-size: 11px; padding: 2px 8px; border-radius: 6px;">ADMIN CONSOLE</span>
+                    <h2 style="font-size: 20px; font-weight: 900; color: #ffffff;">${currentOfflineUser ? currentOfflineUser.name : 'System Administrator'}</h2>
+                  </div>
+                  <p style="font-size: 12px; color: #a7f3d0;">
+                    Shuhadae Islamic Secondary School • UNEB Center U0842 • Administrator Authority
+                  </p>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                  <button onclick="currentOfflineUser.preview = true; renderPage('portal');" style="padding: 8px 14px; border-radius: 10px; background: #065f46; color: #ffffff; font-size: 11px; font-weight: bold; border: 1px solid #10b981; cursor: pointer;">
+                    👁️ Preview Student Portal
+                  </button>
+                  <button onclick="downloadSelf()" style="padding: 8px 14px; border-radius: 10px; background: #f59e0b; color: #0f172a; font-size: 11px; font-weight: 900; border: none; cursor: pointer;">
+                    📥 Backup index.html
+                  </button>
+                </div>
+              </div>
+
+              <!-- Admin Accounts Governance Panel -->
+              <div style="background: #ffffff; border-radius: 20px; padding: 24px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+                  <div>
+                    <h3 style="font-size: 16px; font-weight: 900; color: #0f172a;">🛡️ Administrator Accounts (Strict Limit: 1 or 2 Admins)</h3>
+                    <p style="font-size: 11px; color: #64748b;">School governance policy strictly permits only one or two administrators in the system.</p>
+                  </div>
+                  <span style="background: #fef3c7; color: #92400e; font-weight: 900; font-size: 12px; padding: 4px 12px; border-radius: 9999px; border: 1px solid #fde047;">
+                    Active Admins: ${offlineAdmins.length} / 2 Max
+                  </span>
+                </div>
+                ${adminRows}
+                ${addSecondaryBtn}
+              </div>
+
+              <!-- Quick Stats Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                  <div style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase;">Admissions Queue</div>
+                  <div style="font-size: 28px; font-weight: 900; color: #065f46;">${ADMISSION_APPLICATIONS.length} Apps</div>
+                  <div style="font-size: 11px; color: #059669; font-weight: bold;">Online & Offline submissions</div>
+                </div>
+                <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                  <div style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase;">Bank Collections</div>
+                  <div style="font-size: 24px; font-weight: 900; color: #0f172a;">UGX 2,450,000</div>
+                  <div style="font-size: 11px; color: #64748b;">Centenary & SchoolPay</div>
+                </div>
+                <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                  <div style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase;">UNEB Center Code</div>
+                  <div style="font-size: 28px; font-weight: 900; color: #b45309;">U0842</div>
+                  <div style="font-size: 11px; color: #64748b;">Nyamitanga, Mbarara City</div>
+                </div>
+              </div>
+
+              <!-- Back to Website Button -->
+              <div style="text-align: center; margin-top: 16px;">
+                <button onclick="navigateTo('home')" style="background: #0f172a; color: #ffffff; font-size: 12px; font-weight: bold; padding: 10px 20px; border-radius: 12px; border: none; cursor: pointer;">
+                  ← Return to Public School Website
+                </button>
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        const previewBanner = currentOfflineUser && currentOfflineUser.preview ? `
+          <div style="background: #f59e0b; color: #0f172a; padding: 10px 16px; border-radius: 12px; font-weight: 800; font-size: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <span>👀 Admin Preview Mode: Viewing student portal experience</span>
+            <button onclick="currentOfflineUser.preview = false; renderPage('portal');" style="background: #0f172a; color: #f59e0b; border: none; padding: 5px 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+              ← Return to Admin Console
+            </button>
+          </div>
+        ` : '';
+
+        root.innerHTML = `
+          <div class="max-w-7xl py-8">
+            ${previewBanner}
+            <div style="background: #ffffff; border-radius: 20px; padding: 24px; border: 1px solid #e2e8f0; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap: 16px;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <h2 style="font-size: 22px; font-weight: 900; color: #0f172a;">${STUDENT_DATA.name}</h2>
+                  <span style="background: #d1fae5; color: #065f46; padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 800;">${STUDENT_DATA.class}</span>
+                  <span style="background: #fef3c7; color: #92400e; padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 800;">${STUDENT_DATA.section}</span>
+                </div>
+                <p style="font-size: 12px; color: #64748b;">
+                  Index: <strong>${STUDENT_DATA.index}</strong> · Admission: <strong>${STUDENT_DATA.admissionNo}</strong> · House: <strong>Umar Ibn Al-Khattab</strong>
+                </p>
+              </div>
+              <button onclick="window.print()" style="padding: 10px 18px; border-radius: 12px; background: #065f46; color: #ffffff; font-size: 12px; font-weight: 800;">
+                🖨️ Print Term III Report Slip
+              </button>
+            </div>
+
+            <!-- UPCOMING O-LEVEL & A-LEVEL MOCK EXAMS COUNTDOWN TIMER -->
+            <div style="background: linear-gradient(135deg, #022c22, #0f172a, #064e3b); color: #ffffff; padding: 24px; border-radius: 20px; border: 2px solid #059669; margin-bottom: 24px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; border-bottom: 1px solid rgba(6,95,70,0.8); padding-bottom: 12px;">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="background: #f59e0b; color: #022c22; padding: 2px 8px; border-radius: 9999px; font-size: 10px; font-weight: 900; text-transform: uppercase;">⏰ Mock Exam Countdown</span>
+                    <span style="font-size: 11px; color: #6ee7b7; font-family: monospace;">UNEB Center: U0842 • 2026</span>
+                  </div>
+                  <h3 style="font-size: 18px; font-weight: 900; margin-top: 4px; color: #ffffff;" id="offline-exam-title">UCE Joint Mock Examinations (Senior Four O-Level)</h3>
+                  <p style="font-size: 11px; color: #a7f3d0;" id="offline-exam-subtitle">Main Examination Hall & Science Labs A/B • Commences Monday 02 Nov 2026</p>
+                </div>
+                <div style="display: flex; gap: 6px;">
+                  <button onclick="setOfflineExam('uce')" id="btn-uce" style="padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 800; background: #f59e0b; color: #022c22; cursor: pointer; border: none;">S.4 UCE Mocks</button>
+                  <button onclick="setOfflineExam('uace')" id="btn-uace" style="padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; background: #1e293b; color: #e2e8f0; cursor: pointer; border: none;">S.6 UACE Mocks</button>
+                </div>
+              </div>
+
+              <!-- 4-Digit Countdown Display -->
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 520px; margin: 0 auto 16px; text-align: center;">
+                <div style="background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.4);">
+                  <div style="font-size: 30px; font-weight: 900; color: #fbbf24; font-family: monospace;" id="cd-days">20</div>
+                  <div style="font-size: 10px; text-transform: uppercase; color: #6ee7b7; font-weight: bold;">Days</div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.4);">
+                  <div style="font-size: 30px; font-weight: 900; color: #ffffff; font-family: monospace;" id="cd-hours">14</div>
+                  <div style="font-size: 10px; text-transform: uppercase; color: #6ee7b7; font-weight: bold;">Hours</div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.4);">
+                  <div style="font-size: 30px; font-weight: 900; color: #ffffff; font-family: monospace;" id="cd-mins">35</div>
+                  <div style="font-size: 10px; text-transform: uppercase; color: #6ee7b7; font-weight: bold;">Minutes</div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.85); padding: 12px; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.6);">
+                  <div style="font-size: 30px; font-weight: 900; color: #34d399; font-family: monospace;" id="cd-secs">12</div>
+                  <div style="font-size: 10px; text-transform: uppercase; color: #fbbf24; font-weight: bold;">Seconds</div>
+                </div>
+              </div>
+
+              <!-- Dua & Study Encouragement -->
+              <div style="background: rgba(6, 78, 59, 0.6); padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(52, 211, 153, 0.3); font-size: 11px; text-align: center; color: #d1fae5;">
+                <span style="color: #fde047; font-style: italic; font-weight: bold;">"رَّبِّ زِدْنِي عِلْمًا"</span> — O my Lord, increase me in knowledge. Focus on Physics/Chemistry practicals, mathematics revision sets, and dawn prep.
+              </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="grid sm:grid-cols-3 gap-4 mb-6">
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase;">UNEB Mock Aggregate</div>
+                <div style="font-size: 32px; font-weight: 900; color: #065f46;">${STUDENT_DATA.aggregates}</div>
+                <div style="font-size: 12px; font-weight: bold; color: #059669;">${STUDENT_DATA.division}</div>
+              </div>
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase;">Outstanding Fee Balance</div>
+                <div style="font-size: 28px; font-weight: 900; color: #b45309;">UGX ${STUDENT_DATA.feesBalance.toLocaleString()}</div>
+                <div style="font-size: 12px; color: #64748b;">Cleared UGX ${STUDENT_DATA.feesPaid.toLocaleString()} of UGX ${STUDENT_DATA.feesTotal.toLocaleString()}</div>
+              </div>
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase;">Prayer & Tahfiz Progress</div>
+                <div style="font-size: 28px; font-weight: 900; color: #065f46;">${STUDENT_DATA.prayerAttendance}</div>
+                <div style="font-size: 12px; color: #047857;">${STUDENT_DATA.tahfiz}</div>
+              </div>
+            </div>
+
+            <!-- Official Report Table -->
+            <div style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; margin-bottom: 24px;">
+              <div style="background: #f8fafc; padding: 16px 20px; border-bottom: 1px solid #e2e8f0; font-weight: 800; font-size: 14px;">
+                UNEB Mock Examination Official Results (Standard 9-Point Scale)
+              </div>
+              <table class="table-auto" style="font-size: 13px;">
+                <tr style="background: #f1f5f9; font-weight: 800; color: #334155;">
+                  <th>Subject</th><th>Score</th><th>Grade</th><th>Remarks</th>
+                </tr>
+                <tr><td><strong>Mathematics</strong></td><td>91%</td><td><span style="background: #d1fae5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-weight: bold;">D1</span></td><td>Exceptional analytical & geometry problem-solving</td></tr>
+                <tr><td><strong>Physics</strong></td><td>82%</td><td><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px; font-weight: bold;">D2</span></td><td>Strong practical lab circuit assessment</td></tr>
+                <tr><td><strong>Chemistry</strong></td><td>85%</td><td><span style="background: #d1fae5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-weight: bold;">D1</span></td><td>Commendable acid-base titration precision</td></tr>
+                <tr><td><strong>Biology</strong></td><td>88%</td><td><span style="background: #d1fae5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-weight: bold;">D1</span></td><td>Mastery of human physiology and genetics</td></tr>
+                <tr><td><strong>Islamic Religious Ed (IRE)</strong></td><td>96%</td><td><span style="background: #d1fae5; color: #065f46; padding: 2px 6px; border-radius: 4px; font-weight: bold;">D1</span></td><td>Top student in class; profound Fiqh insights</td></tr>
+                <tr><td><strong>English Language</strong></td><td>78%</td><td><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px; font-weight: bold;">D2</span></td><td>Clear composition and comprehension</td></tr>
+                <tr><td><strong>History & Political Ed</strong></td><td>80%</td><td><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px; font-weight: bold;">D2</span></td><td>Thorough grasp of East African constitutional history</td></tr>
+                <tr><td><strong>Geography</strong></td><td>84%</td><td><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px; font-weight: bold;">D2</span></td><td>Accurate photographic and topographic map work</td></tr>
+              </table>
+              <div style="padding: 16px; background: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 12px; color: #475569;">
+                <strong>Headteacher Comment:</strong> "Masha'Allah! An admirable Division One result. Recommended for BCM/Sub-Math in Senior Five." — <em>Hajji Dr. Sulaiman Bukenya</em>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PAGE: HOME
+      if (page === 'home') {
+        root.innerHTML = `
+          <!-- Hero Section -->
+          <div style="background: linear-gradient(135deg, #022c22, #064e3b); color: #ffffff; padding: 56px 16px;">
+            <div class="max-w-7xl">
+              <div style="display: inline-block; background: rgba(6,95,70,0.8); border: 1px solid #047857; padding: 4px 14px; border-radius: 9999px; font-size: 12px; font-weight: 700; color: #fde047; margin-bottom: 16px;">
+                Admissions Ongoing for S.1 & S.5 · Academic Year 2025/2026
+              </div>
+              <h1 style="font-size: 42px; font-weight: 900; line-height: 1.15; max-width: 800px; margin-bottom: 16px;">
+                Nurturing Academic Distinction Grounded in Noble Islamic Morals
+              </h1>
+              <p style="font-size: 16px; color: #d1fae5; max-width: 680px; margin-bottom: 24px; line-height: 1.6;">
+                Shuhadae Islamic Secondary School is a premier co-educational day and boarding secondary institution located in Nyamitanga Division, Mbarara City, Western Uganda (2 km off Mbarara–Isingiro Highway).
+              </p>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button onclick="navigateTo('admissions')" style="padding: 12px 24px; border-radius: 12px; background: #f59e0b; color: #022c22; font-weight: 900; font-size: 14px;">
+                  Apply Now / Admissions
+                </button>
+                <button onclick="navigateTo('admissions')" style="padding: 12px 20px; border-radius: 12px; background: #065f46; color: #ffffff; font-weight: 800; font-size: 14px; border: 1px solid #047857;">
+                  View Fee Structure
+                </button>
+                <a href="https://wa.me/256705705967" target="_blank" style="padding: 12px 20px; border-radius: 12px; background: #25d366; color: #ffffff; font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+                  WhatsApp (0705 705 967)
+                </a>
+                <button onclick="speakSpeech()" style="padding: 12px 18px; border-radius: 12px; background: #0f172a; color: #fde047; font-weight: 800; font-size: 14px;">
+                  🔊 Listen Welcome Speech
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Stats Bar -->
+          <div class="max-w-7xl" style="margin-top: -24px; margin-bottom: 48px;">
+            <div style="background: #ffffff; border-radius: 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; padding: 24px;" class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 text-center">
+              <div>
+                <div style="font-size: 32px; font-weight: 900; color: #065f46;">Top 5</div>
+                <div style="font-size: 13px; font-weight: 800;">Mbarara District</div>
+                <div style="font-size: 11px; color: #64748b;">UNEB Performance</div>
+              </div>
+              <div>
+                <div style="font-size: 32px; font-weight: 900; color: #065f46;">98.4%</div>
+                <div style="font-size: 13px; font-weight: 800;">Div 1 & 2 Pass Rate</div>
+                <div style="font-size: 11px; color: #64748b;">UCE Candidates</div>
+              </div>
+              <div>
+                <div style="font-size: 32px; font-weight: 900; color: #065f46;">96%</div>
+                <div style="font-size: 13px; font-weight: 800;">Direct University</div>
+                <div style="font-size: 11px; color: #64748b;">MUST, Mak & IUIU</div>
+              </div>
+              <div>
+                <div style="font-size: 32px; font-weight: 900; color: #065f46;">1,250+</div>
+                <div style="font-size: 13px; font-weight: 800;">Learner Body</div>
+                <div style="font-size: 11px; color: #64748b;">Day & Boarding</div>
+              </div>
+              <div>
+                <div style="font-size: 32px; font-weight: 900; color: #065f46;">100%</div>
+                <div style="font-size: 13px; font-weight: 800;">Halal Environment</div>
+                <div style="font-size: 11px; color: #64748b;">5 Daily Prayers</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foundation Pillars -->
+          <div class="max-w-7xl mb-8">
+            <h2 style="font-size: 26px; font-weight: 900; text-align: center; margin-bottom: 24px;">The Three Pillars of Shuhadae Distinction</h2>
+            <div class="grid sm:grid-cols-3 gap-6">
+              <div style="background: #ffffff; padding: 24px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 32px; margin-bottom: 12px;">🎓</div>
+                <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">Academic Rigor</h3>
+                <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+                  Implementing the New Lower Secondary Curriculum (NLSC) with project-based mastery alongside stellar UACE Science and Arts combinations.
+                </p>
+              </div>
+              <div style="background: #ffffff; padding: 24px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 32px; margin-bottom: 12px;">🕌</div>
+                <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">Deen & Tarbiyyah</h3>
+                <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+                  All 5 daily congregational prayers observed in the school mosque, Friday Juma'at services, and after-school Quran memorization (Tahfiz).
+                </p>
+              </div>
+              <div style="background: #ffffff; padding: 24px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                <div style="font-size: 32px; margin-bottom: 12px;">🛡️</div>
+                <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">Safe Halal Boarding</h3>
+                <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+                  Separate boys and girls boarding hostels with 24/7 security, resident matrons, clean water supply, and certified halal balanced nutrition.
+                </p>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PAGE: ABOUT US
+      if (page === 'about') {
+        root.innerHTML = `
+          <div class="max-w-7xl py-8">
+            <h1 style="font-size: 32px; font-weight: 900; margin-bottom: 12px;">About Shuhadae Islamic Secondary School</h1>
+            <p style="font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 32px;">
+              Founded in 1998 in Nyamitanga Division, Mbarara City, Western Uganda, Shuhadae was created to offer premier secular secondary education grounded firmly in noble Islamic moral virtues.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-6 mb-8">
+              <div style="background: #ffffff; padding: 24px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 18px; font-weight: 800; color: #065f46; margin-bottom: 8px;">Our Vision</h3>
+                <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+                  To be the leading center of academic excellence, moral rectitude, and holistic human development in Western Uganda and the wider East African region.
+                </p>
+              </div>
+              <div style="background: #ffffff; padding: 24px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 18px; font-weight: 800; color: #065f46; margin-bottom: 8px;">Our Mission</h3>
+                <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+                  To provide quality, accessible, and holistic secondary education grounded in Islamic principles, empowering learners to excel academically, spiritually, and socially.
+                </p>
+              </div>
+            </div>
+
+            <div style="background: #ffffff; padding: 28px; border-radius: 20px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+              <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 16px;">Core Values That Anchor Our Institution</h3>
+              <div class="grid sm:grid-cols-3 gap-4 text-xs">
+                <div><strong>1. Taqwa (God-Consciousness):</strong> Awareness of Allah in scholarship and character.</div>
+                <div><strong>2. Itqan (Excellence):</strong> Meticulous dedication to science practicals and exams.</div>
+                <div><strong>3. Amanah (Integrity):</strong> Absolute honesty and trustworthy leadership.</div>
+                <div><strong>4. Adab (Discipline):</strong> Respect for elders, teachers, and peers.</div>
+                <div><strong>5. Khidmah (Service):</strong> Dedication to uplifting society and the Ummah.</div>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PAGE: ACADEMICS
+      if (page === 'academics') {
+        root.innerHTML = `
+          <div class="max-w-7xl py-8">
+            <h1 style="font-size: 32px; font-weight: 900; margin-bottom: 8px;">Academics & Examination Standards</h1>
+            <p style="font-size: 14px; color: #475569; margin-bottom: 24px;">UNEB Center Number: <strong>U0842</strong> · Lower Secondary (NLSC) and Upper Secondary (UACE Combinations)</p>
+
+            <div style="background: #ffffff; padding: 24px; border-radius: 20px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+              <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 12px; color: #065f46;">UACE Advanced Level Combinations Offered:</h3>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <strong style="color: #065f46; font-size: 14px; display: block; margin-bottom: 4px;">BCM / ICT</strong>
+                  Biology, Chemistry, Mathematics + ICT.<br>Careers: Human Medicine, Pharmacy, Dentistry.
+                </div>
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <strong style="color: #065f46; font-size: 14px; display: block; margin-bottom: 4px;">PCB / Sub-Math</strong>
+                  Physics, Chemistry, Biology + Sub-Math.<br>Careers: Medicine, Laboratory Technology.
+                </div>
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <strong style="color: #065f46; font-size: 14px; display: block; margin-bottom: 4px;">PEM / ICT</strong>
+                  Physics, Economics, Mathematics + ICT.<br>Careers: Civil/Electrical Engineering, Data Science.
+                </div>
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <strong style="color: #065f46; font-size: 14px; display: block; margin-bottom: 4px;">PCM / ICT</strong>
+                  Physics, Chemistry, Mathematics + ICT.<br>Careers: Mechanical Engineering, Industrial Chemistry.
+                </div>
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <strong style="color: #b45309; font-size: 14px; display: block; margin-bottom: 4px;">HEG / Div</strong>
+                  History, Economics, Geography + Divinity.<br>Careers: Law, International Relations, Planning.
+                </div>
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <strong style="color: #b45309; font-size: 14px; display: block; margin-bottom: 4px;">DEG / Arabic</strong>
+                  Divinity (IRE), Economics, Geography + Arabic.<br>Careers: Islamic Banking, Diplomacy.
+                </div>
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <strong style="color: #b45309; font-size: 14px; display: block; margin-bottom: 4px;">HEL / Sub-Math</strong>
+                  History, Economics, Literature + Sub-Math.<br>Careers: Journalism, Corporate Law.
+                </div>
+                <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <strong style="color: #b45309; font-size: 14px; display: block; margin-bottom: 4px;">MEA / ICT</strong>
+                  Mathematics, Economics, Art & Design + ICT.<br>Careers: Architecture, Industrial Design.
+                </div>
+              </div>
+            </div>
+
+            <div style="background: #ffffff; padding: 24px; border-radius: 20px; border: 1px solid #e2e8f0;">
+              <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">Academic Facilities on Campus:</h3>
+              <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+                • <strong>3 Modern Science Labs:</strong> Fully equipped Physics, Chemistry, and Biology laboratories fitted with gas manifolds and microscopes.<br>
+                • <strong>60-Seat Networked ICT Center:</strong> High-speed internet access for coding, Sub-ICT, and project research.<br>
+                • <strong>Stocked Academic Library:</strong> Curriculum textbooks, past UNEB exam papers, and Islamic reference materials.
+              </p>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PAGE: ADMISSIONS & FEES
+      if (page === 'admissions') {
+        root.innerHTML = `
+          <div class="max-w-7xl py-8">
+            <h1 style="font-size: 32px; font-weight: 900; margin-bottom: 8px;">Admissions & Official Fees Structure</h1>
+            <p style="font-size: 14px; color: #475569; margin-bottom: 24px;">Approved by Board of Governors · Payable in Ugandan Shillings (UGX)</p>
+
+            <div style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; margin-bottom: 32px;">
+              <div style="background: #064e3b; color: #ffffff; padding: 16px 20px; font-weight: 800; font-size: 15px;">
+                Termly Tuition & Boarding Fees Breakdown (UGX)
+              </div>
+              <table class="table-auto" style="font-size: 13px;">
+                <tr style="background: #f1f5f9; font-weight: 800;">
+                  <th>Item Description</th><th>S.1–S.4 (Day)</th><th>S.1–S.4 (Boarding)</th><th>S.5–S.6 (Day)</th><th>S.5–S.6 (Boarding)</th>
+                </tr>
+                <tr><td>Tuition & Instruction</td><td>UGX 380,000</td><td>UGX 450,000</td><td>UGX 420,000</td><td>UGX 520,000</td></tr>
+                <tr><td>Boarding & Halal Meals</td><td>—</td><td>UGX 350,000</td><td>—</td><td>UGX 380,000</td></tr>
+                <tr><td>Science Practical Consumables</td><td>UGX 50,000</td><td>UGX 50,000</td><td>UGX 70,000</td><td>UGX 70,000</td></tr>
+                <tr><td>Computer / ICT & Internet</td><td>UGX 40,000</td><td>UGX 40,000</td><td>UGX 40,000</td><td>UGX 40,000</td></tr>
+                <tr><td>Mosque & Tarbiyyah Welfare</td><td>UGX 20,000</td><td>UGX 20,000</td><td>UGX 20,000</td><td>UGX 20,000</td></tr>
+                <tr><td>Medical Cover & Infirmary</td><td>UGX 30,000</td><td>UGX 40,000</td><td>UGX 30,000</td><td>UGX 40,000</td></tr>
+                <tr style="background: #ecfdf5; font-weight: 900; font-size: 14px; color: #065f46;">
+                  <td>TOTAL PER TERM</td><td>UGX 520,000</td><td>UGX 950,000</td><td>UGX 580,000</td><td>UGX 1,050,000</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Online Application Form with LocalStorage -->
+            <div style="background: #ffffff; padding: 28px; border-radius: 20px; border: 1px solid #cbd5e1; max-width: 600px; margin: 0 auto;">
+              <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">Instant Offline Admission Application</h3>
+              <p style="font-size: 12px; color: #64748b; margin-bottom: 16px;">Saved securely to your device's browser memory.</p>
+              
+              <div id="adm-form-wrap">
+                <div style="margin-bottom: 10px;">
+                  <label style="font-size: 11px; font-weight: bold; display: block; margin-bottom: 4px;">Student Full Name:</label>
+                  <input id="in-name" type="text" placeholder="e.g. Aisha Nakato" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                  <label style="font-size: 11px; font-weight: bold; display: block; margin-bottom: 4px;">Applying For Class & Section:</label>
+                  <select id="in-class" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px;">
+                    <option>Senior One (S.1) Boarding</option>
+                    <option>Senior One (S.1) Day</option>
+                    <option>Senior Five (S.5) Boarding</option>
+                    <option>Senior Five (S.5) Day</option>
+                  </select>
+                </div>
+                <div style="margin-bottom: 10px;">
+                  <label style="font-size: 11px; font-weight: bold; display: block; margin-bottom: 4px;">PLE / UCE Score:</label>
+                  <input id="in-score" type="text" placeholder="e.g. PLE Aggregate 8 (Div 1)" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px;">
+                </div>
+                <div style="margin-bottom: 14px;">
+                  <label style="font-size: 11px; font-weight: bold; display: block; margin-bottom: 4px;">Parent / Guardian Phone:</label>
+                  <input id="in-phone" type="text" placeholder="e.g. 0772 123 456" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px;">
+                </div>
+                <button onclick="saveOfflineForm()" style="width: 100%; padding: 10px; border-radius: 10px; background: #065f46; color: #ffffff; font-weight: 800; font-size: 13px;">
+                  Submit & Print Application Slip
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PAGE: CAMPUS LIFE
+      if (page === 'campus-life') {
+        root.innerHTML = `
+          <div class="max-w-7xl py-8">
+            <h1 style="font-size: 32px; font-weight: 900; margin-bottom: 8px;">Campus Life in Nyamitanga</h1>
+            <p style="font-size: 14px; color: #475569; margin-bottom: 24px;">Hostels, Halal Dining, Quran Competitions, and Inter-House Sports</p>
+            <div class="grid sm:grid-cols-3 gap-6">
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 800; color: #065f46; margin-bottom: 8px;">Annual Hafla & Khatma Quran</h3>
+                <p style="font-size: 12px; color: #475569; line-height: 1.5;">Annual speech day and Quran graduation honoring students who completed full Hifz memorization alongside top academic performers.</p>
+              </div>
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 800; color: #065f46; margin-bottom: 8px;">Inter-House Sports Tournaments</h3>
+                <p style="font-size: 12px; color: #475569; line-height: 1.5;">Spirited football, netball, volleyball, and athletics competitions fostering discipline and physical fitness.</p>
+              </div>
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 800; color: #065f46; margin-bottom: 8px;">Debating & Science Clubs</h3>
+                <p style="font-size: 12px; color: #475569; line-height: 1.5;">Articulate public speaking, regional debate competitions, and robotics/science fair exhibitions.</p>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PAGE: ALUMNI
+      if (page === 'alumni') {
+        root.innerHTML = `
+          <div class="max-w-7xl py-8">
+            <h1 style="font-size: 32px; font-weight: 900; margin-bottom: 8px;">Old Boys & Old Girls Network (SHIBA)</h1>
+            <p style="font-size: 14px; color: #475569; margin-bottom: 24px;">Reunions, Mentorship & School Development · Executive Contacts: <strong>${SCHOOL_DATA.alumniPhone}</strong></p>
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div style="background: #ffffff; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 4px;">Dr. Faridah Nabukenya, MBChB</h3>
+                <div style="font-size: 12px; color: #065f46; font-weight: bold; margin-bottom: 8px;">Class of 2014 (PCB/Sub-Math) · Medical Officer, Mbarara Regional Referral Hospital</div>
+                <p style="font-size: 12px; color: #475569; font-style: italic;">"Shuhadae taught me to balance science practicals with daily prayers. That discipline made me the doctor I am today."</p>
+              </div>
+              <div style="background: #ffffff; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 4px;">Eng. Bashir Mugerwa, BEng</h3>
+                <div style="font-size: 12px; color: #065f46; font-weight: bold; margin-bottom: 8px;">Class of 2016 (PEM/ICT) · Civil Engineer, Uganda National Roads Authority (UNRA)</div>
+                <p style="font-size: 12px; color: #475569; font-style: italic;">"The mathematics and physics foundation from Shuhadae was unmatched in Western Uganda."</p>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PAGE: CONTACT US
+      if (page === 'contact') {
+        root.innerHTML = `
+          <div class="max-w-7xl py-8">
+            <h1 style="font-size: 32px; font-weight: 900; margin-bottom: 8px;">Contact & Visit Our Campus</h1>
+            <p style="font-size: 14px; color: #475569; margin-bottom: 24px;">${SCHOOL_DATA.location}</p>
+            <div class="grid sm:grid-cols-3 gap-6 mb-8">
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 800; color: #065f46; margin-bottom: 6px;">📞 Phone Contacts</h3>
+                <p style="font-size: 13px; color: #0f172a;"><strong>Admin:</strong> ${SCHOOL_DATA.phone}<br><strong>Alumni:</strong> ${SCHOOL_DATA.alumniPhone}</p>
+              </div>
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 800; color: #065f46; margin-bottom: 6px;">✉️ Email Address</h3>
+                <p style="font-size: 13px; color: #0f172a;">${SCHOOL_DATA.email}<br>P.O. Box 718, Mbarara, Uganda</p>
+              </div>
+              <div style="background: #ffffff; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 800; color: #065f46; margin-bottom: 6px;">🗺️ Route from Town</h3>
+                <p style="font-size: 12px; color: #475569;">Cross River Rwizi bridge, take Isingiro Road, branch 2 km off highway onto Nyamitanga Hill (5 mins).</p>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+    }
+
+    // Save offline form submission
+    function saveOfflineForm() {
+      const name = document.getElementById('in-name')?.value;
+      const cl = document.getElementById('in-class')?.value;
+      const sc = document.getElementById('in-score')?.value;
+      const ph = document.getElementById('in-phone')?.value;
+
+      if (!name || !ph) {
+        alert('Please fill in student name and phone number.');
+        return;
+      }
+
+      const ref = 'SISS-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('adm-form-wrap').innerHTML = `
+        <div style="background: #ecfdf5; border: 2px solid #059669; border-radius: 12px; padding: 16px; text-align: center;">
+          <div style="font-size: 20px; margin-bottom: 6px;">✓</div>
+          <strong style="color: #064e3b; font-size: 15px; display: block;">Application Recorded in Offline Memory!</strong>
+          <p style="font-size: 12px; color: #047857; margin: 8px 0;">Reference: <strong>${ref}</strong></p>
+          <p style="font-size: 11px; color: #475569;">Student: <strong>${name}</strong> (${cl}) · Score: <strong>${sc}</strong></p>
+          <button onclick="window.print()" style="margin-top: 12px; padding: 8px 16px; border-radius: 8px; background: #065f46; color: #ffffff; font-weight: bold; font-size: 12px;">
+            🖨️ Print Admission Slip
+          </button>
+        </div>
+      `;
+    }
+
+    // Web Speech API Voice Reader
+    function speakSpeech() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const msg = new SpeechSynthesisUtterance("Assalamu Alaikum. Welcome to Shuhadae Islamic Secondary School, located in Nyamitanga Division, Mbarara City. Knowledge, Faith, and Integrity.");
+        msg.rate = 0.95;
+        window.speechSynthesis.speak(msg);
+      } else {
+        alert("Speech synthesis is not supported on this browser.");
+      }
+    }
+
+    // Offline Admin Accounts System (Enforces max 2 admins limit)
+    function getOfflineAdmins() {
+      try {
+        const raw = localStorage.getItem('shuhadae_admins_offline_v1');
+        if (raw) return JSON.parse(raw).slice(0, 2);
+      } catch (e) {}
+      return [];
+    }
+
+    function saveOfflineAdmins(list) {
+      try {
+        localStorage.setItem('shuhadae_admins_offline_v1', JSON.stringify(list.slice(0, 2)));
+      } catch (e) {}
+    }
+
+    let offlineAdminCreateMode = false;
+    function toggleOfflineAdminCreateMode() {
+      offlineAdminCreateMode = !offlineAdminCreateMode;
+      renderOfflineRoleForm();
+    }
+
+    // Role switcher and authentication handler for portal login
+    let selectedOfflineRole = 'student';
+    let currentOfflineUser = null;
+
+    function selectOfflineRole(role, btn) {
+      selectedOfflineRole = role;
+      document.querySelectorAll('.role-select-btn').forEach(b => {
+        b.style.background = 'transparent';
+        b.style.color = '#64748b';
+        b.style.fontWeight = '700';
+        b.style.boxShadow = 'none';
+      });
+      if (btn) {
+        btn.style.background = '#ffffff';
+        btn.style.color = role === 'admin' ? '#b45309' : '#064e3b';
+        btn.style.fontWeight = '800';
+        btn.style.boxShadow = '0 1px 2px rgba(0,0,0,0.05)';
+      }
+      const errEl = document.getElementById('login-error-msg');
+      if (errEl) errEl.style.display = 'none';
+      const succEl = document.getElementById('login-success-msg');
+      if (succEl) succEl.style.display = 'none';
+
+      const admins = getOfflineAdmins();
+      if (role === 'admin' && admins.length === 0) {
+        offlineAdminCreateMode = true;
+      } else {
+        offlineAdminCreateMode = false;
+      }
+
+      renderOfflineRoleForm();
+    }
+
+    function renderOfflineRoleForm() {
+      const container = document.getElementById('offline-form-fields-container');
+      const submitBtn = document.getElementById('offline-login-submit-btn');
+      const toggleBox = document.getElementById('offline-admin-create-toggle');
+      if (!container) return;
+
+      const admins = getOfflineAdmins();
+
+      if (selectedOfflineRole === 'admin') {
+        if (offlineAdminCreateMode || admins.length === 0) {
+          // Admin Creation Form
+          const slotNum = admins.length + 1;
+          container.innerHTML = `
+            <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 10px; border-radius: 10px; margin-bottom: 12px; font-size: 11px; color: #92400e;">
+              <strong>🛡️ Create Administrator Account (Slot ${slotNum} of 2)</strong><br>
+              Strict rule: Only one or two administrators are permitted in the school portal.
+            </div>
+            <div style="margin-bottom: 10px;">
+              <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 3px;">Full Name & Title *</label>
+              <input id="admin-create-fullname" type="text" placeholder="e.g. Hajji Sulaiman Kibirige (Headteacher)" style="width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px;">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+              <div>
+                <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 3px;">Username / ID *</label>
+                <input id="admin-create-username" type="text" placeholder="e.g. admin" style="width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px; font-family: monospace;">
+              </div>
+              <div>
+                <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 3px;">Role Title *</label>
+                <select id="admin-create-title" style="width: 100%; padding: 8px 6px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 11px;">
+                  <option value="Headteacher / Principal">Headteacher</option>
+                  <option value="Deputy Headteacher">Deputy Headteacher</option>
+                  <option value="School Bursar">School Bursar</option>
+                  <option value="Director of Studies">Director of Studies</option>
+                  <option value="IT Administrator">IT Administrator</option>
+                </select>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
+              <div>
+                <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 3px;">PIN / Password *</label>
+                <input id="admin-create-pin" type="password" placeholder="Min. 4 digits" style="width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px;">
+              </div>
+              <div>
+                <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 3px;">Confirm PIN *</label>
+                <input id="admin-create-pin-confirm" type="password" placeholder="Re-enter PIN" style="width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 12px;">
+              </div>
+            </div>
+          `;
+          if (submitBtn) {
+            submitBtn.textContent = `🛡️ Create Administrator Account (${slotNum}/2)`;
+            submitBtn.style.background = '#b45309';
+          }
+          if (toggleBox) {
+            toggleBox.style.display = admins.length > 0 ? 'block' : 'none';
+            toggleBox.innerHTML = `
+              <button type="button" onclick="toggleOfflineAdminCreateMode()" style="background: none; border: none; color: #065f46; font-size: 11px; font-weight: bold; text-decoration: underline; cursor: pointer;">
+                ← Return to Admin Login
+              </button>
+            `;
+          }
+        } else {
+          // Admin Login Form
+          container.innerHTML = `
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 8px 10px; border-radius: 8px; margin-bottom: 12px; font-size: 11px; color: #334155; display: flex; justify-content: space-between;">
+              <span>Registered Administrators: <strong>${admins.length} / 2</strong></span>
+              <span style="color: ${admins.length >= 2 ? '#b45309' : '#059669'}; font-weight: bold;">${admins.length >= 2 ? 'Slots Full (2/2)' : '1 Slot Open'}</span>
+            </div>
+            <div style="margin-bottom: 12px;">
+              <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 4px;">Admin Username or Employee Code:</label>
+              <input id="offline-login-id" type="text" placeholder="Enter admin username" style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 13px; font-family: monospace;">
+            </div>
+            <div style="margin-bottom: 16px;">
+              <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 4px;">Admin Security PIN / Password:</label>
+              <input id="offline-login-pin" type="password" placeholder="Enter administrator PIN" style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 13px;">
+            </div>
+          `;
+          if (submitBtn) {
+            submitBtn.textContent = '🛡️ Log In as Administrator';
+            submitBtn.style.background = '#0f172a';
+          }
+          if (toggleBox) {
+            toggleBox.style.display = admins.length === 1 ? 'block' : 'none';
+            toggleBox.innerHTML = `
+              <button type="button" onclick="toggleOfflineAdminCreateMode()" style="background: #fef3c7; border: 1px solid #fde047; color: #78350f; font-size: 11px; font-weight: bold; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+                + Register Secondary Admin Account (Slot 2/2)
+              </button>
+            `;
+          }
+        }
+      } else {
+        // Standard Student / Parent / Staff / Alumni Login Form
+        if (toggleBox) toggleBox.style.display = 'none';
+        if (submitBtn) {
+          submitBtn.textContent = '🔐 Log In to Portal';
+          submitBtn.style.background = '#065f46';
+        }
+        let labelText = 'UNEB Index or Admission Number:';
+        let placeholderText = 'e.g. U0842/045';
+        if (selectedOfflineRole === 'parent') {
+          labelText = 'Registered Guardian Phone Number:';
+          placeholderText = 'e.g. 0772 458 912';
+        } else if (selectedOfflineRole === 'staff') {
+          labelText = 'Staff Employment Code:';
+          placeholderText = 'e.g. STAFF/0842/01';
+        } else if (selectedOfflineRole === 'alumni') {
+          labelText = 'Alumni ID or Class Year:';
+          placeholderText = 'e.g. OB/2014/FN';
+        }
+
+        container.innerHTML = `
+          <div style="margin-bottom: 12px;">
+            <label id="offline-id-label" style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 4px;">${labelText}</label>
+            <input id="offline-login-id" type="text" placeholder="${placeholderText}" style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 13px; font-family: monospace;">
+          </div>
+          <div style="margin-bottom: 16px;">
+            <label style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 4px;">Security PIN / Password:</label>
+            <input id="offline-login-pin" type="password" placeholder="Enter PIN / Password" style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 13px;">
+          </div>
+        `;
+      }
+    }
+
+    function handleOfflineLogin() {
+      const errEl = document.getElementById('login-error-msg');
+      const succEl = document.getElementById('login-success-msg');
+      if (errEl) errEl.style.display = 'none';
+      if (succEl) succEl.style.display = 'none';
+
+      // 1. ADMIN CREATION SUBMISSION
+      if (selectedOfflineRole === 'admin' && (offlineAdminCreateMode || getOfflineAdmins().length === 0)) {
+        const admins = getOfflineAdmins();
+        if (admins.length >= 2) {
+          if (errEl) {
+            errEl.textContent = 'Maximum limit reached (2/2 admins). Only one or two admins are permitted.';
+            errEl.style.display = 'block';
+          }
+          return;
+        }
+
+        const nameEl = document.getElementById('admin-create-fullname');
+        const userEl = document.getElementById('admin-create-username');
+        const titleEl = document.getElementById('admin-create-title');
+        const pinEl = document.getElementById('admin-create-pin');
+        const pinConfEl = document.getElementById('admin-create-pin-confirm');
+
+        const nameVal = nameEl ? nameEl.value.trim() : '';
+        const userVal = userEl ? userEl.value.trim().toLowerCase() : '';
+        const titleVal = titleEl ? titleEl.value : 'School Administrator';
+        const pinVal = pinEl ? pinEl.value.trim() : '';
+        const pinConfVal = pinConfEl ? pinConfEl.value.trim() : '';
+
+        if (!nameVal) {
+          if (errEl) { errEl.textContent = 'Please enter administrator full name.'; errEl.style.display = 'block'; }
+          return;
+        }
+        if (!userVal) {
+          if (errEl) { errEl.textContent = 'Please enter administrator username or ID.'; errEl.style.display = 'block'; }
+          return;
+        }
+        if (!pinVal || pinVal.length < 4) {
+          if (errEl) { errEl.textContent = 'PIN / Password must be at least 4 characters.'; errEl.style.display = 'block'; }
+          return;
+        }
+        if (pinVal !== pinConfVal) {
+          if (errEl) { errEl.textContent = 'PIN confirmation does not match.'; errEl.style.display = 'block'; }
+          return;
+        }
+
+        if (admins.some(a => a.username === userVal)) {
+          if (errEl) { errEl.textContent = `Admin with username "${userVal}" already exists.`; errEl.style.display = 'block'; }
+          return;
+        }
+
+        const newAdmin = {
+          id: 'adm_' + Date.now(),
+          fullName: nameVal,
+          username: userVal,
+          title: titleVal,
+          pin: pinVal,
+          isPrimary: admins.length === 0,
+          createdAt: new Date().toLocaleDateString()
+        };
+
+        admins.push(newAdmin);
+        saveOfflineAdmins(admins);
+
+        if (succEl) {
+          succEl.textContent = `Administrator account created successfully (${admins.length}/2)! Entering Admin Console...`;
+          succEl.style.display = 'block';
+        }
+
+        currentOfflineUser = { name: newAdmin.fullName + ' (' + newAdmin.title + ')', role: 'admin' };
+        setTimeout(() => {
+          navigateTo('portal');
+        }, 800);
+        return;
+      }
+
+      // 2. ADMIN LOGIN SUBMISSION
+      if (selectedOfflineRole === 'admin') {
+        const idEl = document.getElementById('offline-login-id');
+        const pinEl = document.getElementById('offline-login-pin');
+        const idVal = idEl ? idEl.value.trim().toLowerCase() : '';
+        const pinVal = pinEl ? pinEl.value.trim() : '';
+
+        const admins = getOfflineAdmins();
+        const matched = admins.find(a => a.username.toLowerCase() === idVal);
+
+        if (!matched) {
+          if (errEl) {
+            errEl.textContent = 'Admin account not found. Please check username or create the admin account.';
+            errEl.style.display = 'block';
+          }
+          return;
+        }
+
+        if (matched.pin && matched.pin !== pinVal) {
+          if (errEl) {
+            errEl.textContent = 'Incorrect administrator PIN or password.';
+            errEl.style.display = 'block';
+          }
+          return;
+        }
+
+        currentOfflineUser = { name: matched.fullName + ' (' + matched.title + ')', role: 'admin' };
+        navigateTo('portal');
+        return;
+      }
+
+      // 3. STUDENT, PARENT, STAFF, ALUMNI LOGIN
+      const idEl = document.getElementById('offline-login-id');
+      const pinEl = document.getElementById('offline-login-pin');
+      const idVal = idEl ? idEl.value.trim() : '';
+      const pinVal = pinEl ? pinEl.value.trim() : '';
+
+      if (!idVal) {
+        if (errEl) {
+          errEl.textContent = 'Please enter your UNEB Index, Admission Number, or Phone.';
+          errEl.style.display = 'block';
+        }
+        return;
+      }
+      if (!pinVal || pinVal.length < 4) {
+        if (errEl) {
+          errEl.textContent = 'Please enter a valid PIN or password (at least 4 characters).';
+          errEl.style.display = 'block';
+        }
+        return;
+      }
+
+      if (idVal.toUpperCase() === 'U0842/045' || idVal.toLowerCase().includes('farooq')) {
+        STUDENT_DATA.name = "Farooq Kateregga";
+        STUDENT_DATA.index = "U0842/045";
+      } else {
+        STUDENT_DATA.name = (selectedOfflineRole === 'parent' ? "Guardian (" + idVal + ")" : (selectedOfflineRole === 'staff' ? "Staff (" + idVal + ")" : "Student (" + idVal.toUpperCase() + ")"));
+        STUDENT_DATA.index = idVal.toUpperCase();
+      }
+
+      currentOfflineUser = { name: STUDENT_DATA.name, role: selectedOfflineRole };
+      navigateTo('portal');
+    }
+
+    function deleteOfflineAdmin(id) {
+      if (confirm("Are you sure you want to remove this administrator? This will free up a slot.")) {
+        const admins = getOfflineAdmins().filter(a => a.id !== id);
+        saveOfflineAdmins(admins);
+        renderPage('portal');
+      }
+    }
+
+    // Download standalone file itself with exact filename index.html
+    function downloadSelf() {
+      const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    // Toggle Offline Admissions Counselor Chat
+    function toggleOfflineChat() {
+      const chat = document.getElementById('offline-chat-modal');
+      if (chat) {
+        chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
+      }
+    }
+
+    function askOfflineChat(question) {
+      const chatLog = document.getElementById('chat-log');
+      if (!chatLog) return;
+      
+      const userBubble = document.createElement('div');
+      userBubble.style.cssText = "background: #e2e8f0; color: #0f172a; padding: 8px 12px; border-radius: 12px; font-size: 12px; margin-bottom: 8px; align-self: flex-end; max-width: 85%; font-weight: 500;";
+      userBubble.textContent = question;
+      chatLog.appendChild(userBubble);
+
+      // Determine answers based on authentic school knowledge base
+      let reply = "Assalamu Alaikum. Thank you for inquiring about Shuhadae Islamic Secondary School, Nyamitanga Division, Mbarara City. Please reach our admissions office on 0705 705 967 or 0702 365 176 for personalized assistance.";
+      const q = question.toLowerCase();
+      if (q.includes('fee') || q.includes('cost') || q.includes('tuition')) {
+        reply = "Our term fees: O-Level Boarding is UGX 950,000 / term (Day: UGX 520,000). A-Level Boarding is UGX 1,050,000 / term (Day: UGX 580,000). Fees cover tuition, lab consumables, computer/ICT, and halal meals. Flexible installments accepted through Centenary Bank & MTN SchoolPay.";
+      } else if (q.includes('where') || q.includes('location') || q.includes('address') || q.includes('directions')) {
+        reply = "We are located on Nyamitanga Hill, Nyamitanga Division, Mbarara City, Western Uganda (about 2 km off the Mbarara–Isingiro Highway). From Mbarara town center, cross the River Rwizi bridge, turn onto Isingiro Road, and branch right onto the school hill road (5 minutes drive).";
+      } else if (q.includes('combination') || q.includes('a-level') || q.includes('subject')) {
+        reply = "We offer Sciences: BCM (Biology, Chemistry, Math), PCB (Physics, Chemistry, Biology), PEM (Physics, Economics, Math), PCM. And Arts: HEG, DEG, HEL, MEA, and Arabic combinations alongside subsidiary ICT and Math.";
+      } else if (q.includes('prayer') || q.includes('islam') || q.includes('deen') || q.includes('halal') || q.includes('tahfiz')) {
+        reply = "Shuhadae observes all 5 daily prayers in our dedicated school mosque. We hold Friday Juma'at prayers, after-school Tahfiz (Quran memorization with certified Tajweed sheikhs), Hadith lessons, and provide 100% halal balanced nutrition.";
+      } else if (q.includes('contact') || q.includes('phone') || q.includes('call') || q.includes('whatsapp')) {
+        reply = "Reach the Headteacher and Admissions on 0705 705 967. Alumni lines: 0702 365 176 / 0755 260 894. Email: info@shuhadaeislamicssmbarara.com. WhatsApp: +256 705 705 967.";
+      }
+
+      setTimeout(() => {
+        const botBubble = document.createElement('div');
+        botBubble.style.cssText = "background: #ecfdf5; border: 1px solid #a7f3d0; color: #064e3b; padding: 10px 12px; border-radius: 12px; font-size: 12px; margin-bottom: 8px; align-self: flex-start; max-width: 90%; line-height: 1.4;";
+        botBubble.innerHTML = "<strong>Ustadh Sulaiman (Admissions):</strong><br>" + reply;
+        chatLog.appendChild(botBubble);
+        chatLog.scrollTop = chatLog.scrollHeight;
+      }, 300);
+    }
+
+    // Countdown Timer State & Controller for O-Level / A-Level Mocks
+    let currentExamTarget = new Date('2026-11-02T08:30:00').getTime();
+    let countdownTimerId = null;
+
+    function setOfflineExam(type) {
+      const btnUce = document.getElementById('btn-uce');
+      const btnUace = document.getElementById('btn-uace');
+      const title = document.getElementById('offline-exam-title');
+      const sub = document.getElementById('offline-exam-subtitle');
+
+      if (type === 'uce') {
+        currentExamTarget = new Date('2026-11-02T08:30:00').getTime();
+        if (title) title.textContent = "UCE Joint Mock Examinations (Senior Four O-Level)";
+        if (sub) sub.textContent = "Main Examination Hall & Science Labs A/B • Commences Monday 02 Nov 2026";
+        if (btnUce) { btnUce.style.background = '#f59e0b'; btnUce.style.color = '#022c22'; }
+        if (btnUace) { btnUace.style.background = '#1e293b'; btnUace.style.color = '#e2e8f0'; }
+      } else {
+        currentExamTarget = new Date('2026-11-09T08:30:00').getTime();
+        if (title) title.textContent = "UACE Joint Mock Examinations (Senior Six A-Level)";
+        if (sub) sub.textContent = "Upper Campus Advanced Wing • Science & Arts Combinations • Starts Monday 09 Nov 2026";
+        if (btnUce) { btnUce.style.background = '#1e293b'; btnUce.style.color = '#e2e8f0'; }
+        if (btnUace) { btnUace.style.background = '#f59e0b'; btnUace.style.color = '#022c22'; }
+      }
+      tickCountdown();
+    }
+
+    function tickCountdown() {
+      const daysEl = document.getElementById('cd-days');
+      if (!daysEl) return;
+      const now = new Date().getTime();
+      const diff = currentExamTarget - now;
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-mins').textContent = '00';
+        document.getElementById('cd-secs').textContent = '00';
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+    }
+
+    function startOfflineCountdownTicker() {
+      if (countdownTimerId) clearInterval(countdownTimerId);
+      tickCountdown();
+      countdownTimerId = setInterval(tickCountdown, 1000);
+    }
+
+    // Initial boot router: User requested login page as first page
+    window.addEventListener('load', () => {
+      const hash = window.location.hash.replace('#', '') || 'login';
+      navigateTo(hash);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "Shuhadae Islamic Secondary School",
+  "description": "Official website and student portal for Shuhadae Islamic Secondary School, Nyamitanga Division, Mbarara City, Uganda. Academic excellence, Islamic values, O-Level & A-Level admissions, campus tour, and alumni network.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

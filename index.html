@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Shuhadae Islamic Secondary School</title>
+    <meta name="description" content="Official website and student portal for Shuhadae Islamic Secondary School, Nyamitanga Division, Mbarara City, Uganda. Academic excellence, Islamic values, O-Level & A-Level admissions, campus tour, and alumni network." />
+    <meta property="og:title" content="Shuhadae Islamic Secondary School" />
+    <meta property="og:description" content="Official website and student portal for Shuhadae Islamic Secondary School, Nyamitanga Division, Mbarara City, Uganda. Academic excellence, Islamic values, O-Level & A-Level admissions, campus tour, and alumni network." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- PWA & Offline Browser Storage Tags -->
+    <meta name="theme-color" content="#065f46" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Shuhadae" />
+    <meta name="application-name" content="Shuhadae Islamic Secondary School" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Seamless Preview & WebSocket Handler -->
+    <script>
+      (function() {
+        // 1. Intercept Vite HMR WebSocket in preview iframe where HMR is disabled
+        if (typeof window !== 'undefined' && window.WebSocket) {
+          const NativeWebSocket = window.WebSocket;
+          function ViteSilentWebSocket(url, protocols) {
+            const isViteHmr = protocols === 'vite-hmr' || 
+              (Array.isArray(protocols) && protocols.includes('vite-hmr')) || 
+              (typeof url === 'string' && url.includes('vite-hmr'));
+
+            if (isViteHmr) {
+              const emitter = new EventTarget();
+              emitter.url = url;
+              emitter.protocol = 'vite-hmr';
+              emitter.readyState = 1; // WebSocket.OPEN
+              emitter.bufferedAmount = 0;
+              emitter.extensions = '';
+              emitter.binaryType = 'blob';
+              emitter.send = function() {};
+              emitter.close = function() {
+                emitter.readyState = 3;
+              };
+              setTimeout(function() {
+                const openEvent = new Event('open');
+                emitter.dispatchEvent(openEvent);
+                if (typeof emitter.onopen === 'function') emitter.onopen(openEvent);
+              }, 0);
+              return emitter;
+            }
+            return new NativeWebSocket(url, protocols);
+          }
+          ViteSilentWebSocket.prototype = NativeWebSocket.prototype;
+          ViteSilentWebSocket.CONNECTING = NativeWebSocket.CONNECTING;
+          ViteSilentWebSocket.OPEN = NativeWebSocket.OPEN;
+          ViteSilentWebSocket.CLOSING = NativeWebSocket.CLOSING;
+          ViteSilentWebSocket.CLOSED = NativeWebSocket.CLOSED;
+          window.WebSocket = ViteSilentWebSocket;
+        }
+
+        // 2. Filter harmless [vite] WebSocket disconnect logs from console
+        const originalConsoleError = console.error;
+        console.error = function(...args) {
+          if (args.length > 0 && typeof args[0] === 'string') {
+            if (args[0].includes('WebSocket closed without opened') || 
+                args[0].includes('[vite] Error: WebSocket') ||
+                args[0].includes('WebSocket connection to')) {
+              return;
+            }
+          }
+          originalConsoleError.apply(console, args);
+        };
+
+        window.addEventListener('error', function(event) {
+          if (event.message && (event.message.includes('WebSocket') || event.message.includes('[vite]'))) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased font-sans selection:bg-emerald-700 selection:text-white transition-colors duration-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
